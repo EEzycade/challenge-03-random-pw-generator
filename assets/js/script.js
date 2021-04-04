@@ -26,14 +26,16 @@ function generatePassword() {
         specialConfirm = confirm("Would you like special characters in your password?");
     }
 
-    var howMany = 0
+    var howMany = prompt("How many characters?");
     while (howMany <= 7 || howMany >= 129 || isNaN(howMany)) {
-        howMany = prompt("How many characters would you like your password to be. Select a number between 8-128.");
+        prompt("How many characters would you like your password to be. Select a number between 8-128.");
     }
+
+    console.log(howMany);
 
     var lowerCase = ["a", "b", "c", "d"]
     var upperCase = ["A", "B", "C", "D"]
-    var numeric = [1, 2, 3, 4]
+    var numeric = ["1", "2", "3", "4"]
     var special = ["#", "&", "$", "!"]
 
     var characterBank = []
@@ -58,7 +60,7 @@ function generatePassword() {
     }
 
 
-
+    console.log(characterBank);
     // var finalPassword = "";
 
     // for (var i = 0; i < howMany; i++) {
@@ -69,12 +71,22 @@ function generatePassword() {
 
     // for (var i = 0; i < 6; i++) {
 
-        // finalPassword += characterBank.charAt[Math.floor(Math.random() * characterBank.length)];
-        // return finalPassword
+    //     finalPassword += characterBank.charAt[Math.floor(Math.random() * characterBank.length)];
+    //     return finalPassword
     // }
 
+    var finalPassword = "";
+
+    // for (var i = 0; i < howMany; i++) {
+    //     var finalPassword = Math.floor(Math.random() * characterBank.length);
+    //     return finalPassword;
+
+    // }
+
+
+
     finalPassword = characterBank[Math.floor(Math.random() * characterBank.length)];
-    return finalPassword  
+    return finalPassword
 }
 
 // Add event listener to generate button
