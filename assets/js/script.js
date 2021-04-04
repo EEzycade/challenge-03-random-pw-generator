@@ -44,19 +44,22 @@ function generatePassword() {
 
     if (lowerCaseConfirm) {
         characterBank = characterBank.concat(lowerCase);
-        // passCode += characterBank(lowerCase);
+        alert("You chose to have lowercase characters in your password!")
     }
 
     if (upperCaseConfirm) {
         characterBank = characterBank.concat(upperCase);
+        alert("You chose to have uppercase characters in your password!")
     }
 
     if (numericConfirm) {
         characterBank = characterBank.concat(numeric);
+        alert("You chose to have numeric characters in your password!")
     }
 
     if (specialConfirm) {
         characterBank = characterBank.concat(special);
+        alert("You chose to have special characters in your password!")
     }
 
     console.log(characterBank);
