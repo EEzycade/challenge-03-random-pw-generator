@@ -15,7 +15,7 @@ function generatePassword() {
     var upperCaseConfirm = false
     var numericConfirm = false
     var specialConfirm = false
-    while (!lowerCaseConfirm || !upperCaseConfirm || !numericConfirm || !specialConfirm) {
+    while (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialConfirm === false) {
 
         lowerCaseConfirm = confirm("Would you like lowercase characters in your password?");
 
@@ -25,21 +25,56 @@ function generatePassword() {
 
         specialConfirm = confirm("Would you like special characters in your password?");
     }
-    
+
     var howMany = 0
     while (howMany <= 7 || howMany >= 129 || isNaN(howMany)) {
         howMany = prompt("How many characters would you like your password to be. Select a number between 8-128.");
     }
-    
+
     var lowerCase = ["a", "b", "c", "d"]
+    var upperCase = ["A", "B", "C", "D"]
+    var numeric = [1, 2, 3, 4]
+    var special = ["#", "&", "$", "!"]
+
     var characterBank = []
-    // var passCode = ""
+
+    // var finalPassword = ""
+
     if (lowerCaseConfirm) {
         characterBank = characterBank.concat(lowerCase);
         // passCode += characterBank(lowerCase);
     }
-    var finalPassword = characterBank[Math.floor(Math.random() * characterBank.length)];
-    return finalPassword
+
+    if (upperCaseConfirm) {
+        characterBank = characterBank.concat(upperCase);
+    }
+
+    if (numericConfirm) {
+        characterBank = characterBank.concat(numeric);
+    }
+
+    if (specialConfirm) {
+        characterBank = characterBank.concat(special);
+    }
+
+
+
+    // var finalPassword = "";
+
+    // for (var i = 0; i < howMany; i++) {
+    //     finalPassword += characterBank.charAt[Math.floor(Math.random() * characterBank.length)];
+    //     return finalPassword
+    // }
+
+
+    // for (var i = 0; i < 6; i++) {
+
+        // finalPassword += characterBank.charAt[Math.floor(Math.random() * characterBank.length)];
+        // return finalPassword
+    // }
+
+    finalPassword = characterBank[Math.floor(Math.random() * characterBank.length)];
+    return finalPassword  
 }
 
 // Add event listener to generate button
